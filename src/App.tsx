@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // mainText -- строковый эквивалент содержимого div.main-text, 
+  // необходим для маски текста над картинкой планеты
+  const mainText = 'Explore Your own planet In our New metaverse';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+    <>
+        <div className={'container'}>
+          <div className={'orbit-container'}>
+            <div className="orbit"></div>
+          </div>
+          <div className={'main-text-container'}>
+            <p className={'main-text'} data-text-mask={mainText}>
+              Explore Your own planet In <span className='inverted'>our New</span> metaverse
+            </p>
+          </div>          
+        </div>  
+        <p className={'description-text'}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          
+        
+    </>
   );
 }
 
