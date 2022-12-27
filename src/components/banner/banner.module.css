@@ -1,0 +1,83 @@
+.container {
+    --offsetX: 556px;
+    --offsetY: -168px;   
+
+    width: 1010px;
+    position: relative;
+    margin-top: 200px;
+}
+
+.orbit {
+    position: absolute;
+    top: var(--offsetY);
+    left: var(--offsetX);
+    margin: var(--shadow-size); /*для фоновой тени*/
+    width: var(--plant-size);
+    height: var(--plant-size);
+    
+    border-radius: 50%;
+    background-image: var(--plant);
+    background-color: #1e1e20;
+    background-repeat: no-repeat;
+    z-index: 0;
+    box-shadow:
+      0 0 0 25px #1e1e20, /*отсчет от окружности радиусом 446рх вовнутрь*/
+      0 0 0 26px #323232,
+      0 0 0 32px #1e1e20,
+      0 0 0 33px #323232,
+      0 0 0 63px #1e1e20;
+    pointer-events: none;
+}
+
+
+.orbit::after {
+    position: absolute;
+    top: calc(-1 * var(--shadow-size));
+    left: calc(-1 * var(--shadow-size));
+    height: calc(var(--plant-size) + 2 * var(--shadow-size));
+    width: calc(var(--plant-size) + 2 * var(--shadow-size));
+    z-index: -1;
+    
+    content: "";
+    border-radius: inherit;
+    background: radial-gradient(
+        transparent 0,
+        transparent 243px,
+        #1e1e20 263px);
+    pointer-events: none;
+}
+
+
+.text {
+    position: relative;
+
+    width: 1007px;
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 120px;
+    color: var(--primary-color);
+    -webkit-text-stroke: 1px var(--primary-color); /*иначе шрифт не соответсвует макетному*/
+}
+
+.text::after {
+    position: absolute;
+    top: 0;
+    left: 0;   
+    z-index: 100;
+    
+    content: attr(data-text-mask);
+    -webkit-mask: 
+        var(--plant) no-repeat 
+        calc(var(--offsetX) + var(--shadow-size))
+        calc(var(--offsetY) + var(--shadow-size));
+    color: var(--accent-color);
+    -webkit-text-stroke: 2px var(--accent-color);
+    pointer-events: none; /*для корректного селекта текста*/
+}
+
+.description-text {
+    width: 420px;
+    margin-top: 14px;
+}

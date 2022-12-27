@@ -1,0 +1,32 @@
+.shifted-plant-container {
+    --offsetX: 300px;
+    --offsetY: 40px;
+
+    width: calc(var(--plant-size) + 2* var(--shadow-size));
+    position: relative;
+}
+
+.user-card-container {
+    margin-top: 110px;
+}
+
+.user-card-container>h2 {
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+}
+
+.user-card-container>h3 {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+}
+
+.user-card-container>strong {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 120%;
+    color: var(--accent-color);
+}

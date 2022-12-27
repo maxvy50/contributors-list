@@ -1,27 +1,42 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Button from './components/UI/button/Button';
+import MainPage from './pages/MainPage';
+import UserPage from './pages/UserPage';
+import { useParticipantContext } from './context/ParticipantContext';
+import { useEthers } from '@usedapp/core';
 
 function App() {
-  // mainText -- строковый эквивалент содержимого div.main-text, 
-  // необходим для маски текста над картинкой планеты
-  const mainText = 'Explore Your own planet In our New metaverse';
+
+  const context = useParticipantContext()
+  const { activateBrowserWallet, deactivate,  account } = useEthers()
+
+  const connectMetamask = () => {
+    activateBrowserWallet()
+  }
+
+  useEffect(() => { //чтобы отключиться от кошелька при unmount
+    return () => {
+      deactivate()
+    }
+  },[])
+
   return (
     <>
-        <div className={'container'}>
-          <div className={'orbit-container'}>
-            <div className="orbit"></div>
-          </div>
-          <div className={'main-text-container'}>
-            <p className={'main-text'} data-text-mask={mainText}>
-              Explore Your own planet In <span className='inverted'>our New</span> metaverse
-            </p>
-          </div>          
-        </div>  
-        <p className={'description-text'}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-          
-        
+      <div className={'header'}>
+        <img className={'logo'} src="URL" alt="logo"></img>
+        {!account
+          ? <Button onClick={connectMetamask}>Connect Metamask</Button>
+          : <strong>{account}</strong>
+        }
+      </div>
+      <Router>
+        <Routes>
+          <Route path={'/'} element={<MainPage />} />
+          {context?.credits && <Route path={'/id/:id'} element={<UserPage />} />}
+          <Route path={'*'} element={<MainPage />} />
+        </Routes>
+      </Router>
     </>
   );
 }

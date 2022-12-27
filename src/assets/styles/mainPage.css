@@ -1,0 +1,34 @@
+.inverted {
+    color: var(--background-color);
+    display: contents;
+}
+
+.description-text {
+    width: 420px;
+    margin-top: 14px;
+}
+
+.notification {
+    width: 422px;
+    height: 295px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.notification h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 120%;
+    color: var(--accent-color);
+}
+
+.notification p {
+    width: 75%;
+    text-align: center;
+}
+
+.notification a {
+    color: var(--accent-color);
+}

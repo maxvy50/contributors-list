@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/src/assets/fonts/BebasNeueBold700.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/src/assets/fonts/BebasNeueRegular400.ttf') format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextCyr-Regular';
+    src: url('/src/assets/fonts/avenirnextcyr-regular.eot');
+    /* IE 9 Compatibility Mode */
+    src: url('/src/assets/fonts/avenirnextcyr-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE < 9 */
+        url('/src/assets/fonts/avenirnextcyr-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('/src/assets/fonts/avenirnextcyr-regular.woff') format('woff'),
+        /* Firefox >= 3.6, any other modern browser */
+        url('/src/assets/fonts/avenirnextcyr-regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('/src/assets/fonts/avenirnextcyr-regular.svg#avenirnextcyr-regular') format('svg');
+    /* Chrome < 4, Legacy iOS */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--primary-color);
+    font-family: var(--main-font);
+}
+
+#root {
+    position: relative;
+    padding: 64px;
+    min-width: 1420px;
+    min-height: 700px;
+    overflow: hidden;
+
+    --main-font: "Bebas Neue";
+    --extra-font: "AvenirNextCyr-Regular";
+    --primary-color: #fff;
+    --accent-color: #E75626;
+    --background-color: #171719;
+    --plant: url(/src/assets/plant.png);
+    --plant-size: 322px;
+    --shadow-size: 105px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    row-gap: 100px;
+
+    background-color: var(--background-color);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 0 64px 0 64px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header > strong {
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--accent-color);
+}
+
+img {
+    position: relative;
+    width: 200px;
+    height: 45px;
+}
+
+img[alt]::after {
+    content: attr(alt);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 3px);
+    height: calc(100% - 2px);
+    background: #5A5A5A;
+    border: 1px dashed #C7C7C7;
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+}
+
+p,
+a {
+    font-family: var(--extra-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.loader-placeholder {
+    align-self: center;
+    justify-self: center;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+}
