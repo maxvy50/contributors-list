@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/unistory-test/static/css/main.f52546ca.css",
-    "main.js": "/unistory-test/static/js/main.b62ef5b9.js",
+    "main.css": "/unistory-test/static/css/main.ec92e680.css",
+    "main.js": "/unistory-test/static/js/main.8a1e8bac.js",
     "static/media/plant.png": "/unistory-test/static/media/plant.c55be23f88035ead43c0.png",
     "static/media/avenirnextcyr-regular.svg": "/unistory-test/static/media/avenirnextcyr-regular.77053e9a01ab2969e98c.svg",
     "static/media/BebasNeueRegular400.ttf": "/unistory-test/static/media/BebasNeueRegular400.7d2f1e3c43251f14336c.ttf",
@@ -11,11 +11,11 @@
     "static/media/avenirnextcyr-regular.woff": "/unistory-test/static/media/avenirnextcyr-regular.b140b47c1e603d09b99f.woff",
     "static/media/avenirnextcyr-regular.woff2": "/unistory-test/static/media/avenirnextcyr-regular.ab40a32de26493781148.woff2",
     "index.html": "/unistory-test/index.html",
-    "main.f52546ca.css.map": "/unistory-test/static/css/main.f52546ca.css.map",
-    "main.b62ef5b9.js.map": "/unistory-test/static/js/main.b62ef5b9.js.map"
+    "main.ec92e680.css.map": "/unistory-test/static/css/main.ec92e680.css.map",
+    "main.8a1e8bac.js.map": "/unistory-test/static/js/main.8a1e8bac.js.map"
   },
   "entrypoints": [
-    "static/css/main.f52546ca.css",
-    "static/js/main.b62ef5b9.js"
+    "static/css/main.ec92e680.css",
+    "static/js/main.8a1e8bac.js"
   ]
 }
