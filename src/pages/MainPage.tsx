@@ -7,6 +7,7 @@ import '../assets/styles/mainPage.css'
 import Modal from '../components/UI/modal/Modal';
 import { useParticipantContext } from '../context/ParticipantContext';
 import Button from '../components/UI/button/Button';
+import '../assets/styles/animation/animation.css'
 
 
 function MainPage() {
@@ -27,6 +28,17 @@ function MainPage() {
                     <Button onClick={hideNotification}>Skip this step</Button>
                 </div>
             </Modal>
+            <div className={"total-container"}>
+                <div className={"label-container"}>
+                    <div className={"label"}>
+                        Q1 2022
+                        <div className={"label-bullet"}></div>
+                    </div>
+                </div>
+                <div className={"arc-container"}>
+                    <div className={"arc"}></div>
+                </div>
+            </div>
             <Banner>
                 <>Explore Your own planet In <span className={'inverted'}>our new</span> metaverse</>
             </Banner>

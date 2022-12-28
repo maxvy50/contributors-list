@@ -1,0 +1,98 @@
+.bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+}
+
+.total-container {
+    --orbit-size: 486px;
+    --label-height: 30px;
+    --half-orbit-size: calc(0.5 * var(--orbit-size));
+    
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    left: 820px;
+    top: 105px;
+    z-index: 1;
+}
+
+.label-container {
+    position: absolute;
+    overflow: hidden;
+    width: min-content;
+
+    /*такая ручная настройка оверфлоуУ*/
+    padding-left: 12px;
+    margin-left: -12px;
+    
+    background-color: transparent;
+    /* z-index: 0; */
+}
+
+.label {
+    position: relative;
+    left: -12px;
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-family: var(--main-font);
+    color: #000;
+    padding: 0 12px;
+    width: 80px;
+    height: var(--label-height);
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.label-bullet {
+    box-sizing: content-box;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: inline-block;
+    border:  3px solid #fff;
+    box-shadow: 
+        -2px -2px 6px rgba(50, 50, 50, 0.25),
+        2px 2px 6px rgba(50, 50, 50, 0.25);
+}
+
+.arc-container {
+    position: relative;
+    left: 70px;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+    z-index: -1;
+    padding-right: calc(var(--orbit-size));
+    margin-right: calc(var(--orbit-size));
+    padding-bottom: calc(var(--orbit-size) + var(--label-height));
+    margin-bottom: calc(-1 * (var(--orbit-size) + var(--label-height)));
+}
+
+.arc {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: var(--half-orbit-size);
+    height: var(--orbit-size);
+    background-color: transparent;
+    border-top-right-radius: var(--half-orbit-size);
+    border-bottom-right-radius: var(--half-orbit-size);
+    border: 0.5px solid var(--accent-color);
+    border-left: none;
+    animation: show-arc 2s infinite;
+    transform-origin: 0% 50%;
+    z-index: -1;
+}
+
+@keyframes show-arc {
+    0% {
+        transform: rotate(-180deg);
+    }
+}
