@@ -1,32 +1,3 @@
-/* .row, .row > a {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    width: 670px;
-    text-decoration: none;
-}
-
-.row span {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 120%;
-}
-
-.row span:first-child {
-    width: 170px;
-    margin-right: 15px;
-}
-
-.row span:nth-child(2) {
-    width: 230px;
-    margin-right: 15px;
-}
-
-.row  span:nth-child(3) {
-    width: 210px;
-    margin-right: 15px;
-} */
-
 .item {
     border-top: 1px solid var(--primary-color);
     text-decoration: none;
@@ -62,6 +33,6 @@
     outline: none   ;
 }
 
-.inactive {
+.inactive > a {
     pointer-events: none;
 }

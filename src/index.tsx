@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './assets/styles/global.css';
 import App from './App';
 import { Config, DAppProvider, Goerli, Mainnet } from '@usedapp/core';
-import ParticipantContextProvider from './context/ParticipantContext';
 import { getDefaultProvider } from 'ethers';
 
 export const paragraphPlaceholder = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
@@ -23,9 +22,7 @@ const config: Config = {
 root.render(
   <React.StrictMode>
     <DAppProvider config={config}>
-      <ParticipantContextProvider>
         <App />
-      </ParticipantContextProvider>
     </DAppProvider>
   </React.StrictMode>
 );

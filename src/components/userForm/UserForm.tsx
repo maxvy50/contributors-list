@@ -1,29 +1,26 @@
-import React, { SyntheticEvent, useRef } from 'react'
+import React, { FC, FormEventHandler, useRef } from 'react'
 import Button from '../UI/button/Button';
 import s from './userForm.module.css'
 import { paragraphPlaceholder } from '../../index';
 import Input from '../UI/input/Input';
-import { useParticipantContext } from '../../context/ParticipantContext';
+import { useCreditsContext } from '../../context/CreditsContext';
 import { useEthers } from '@usedapp/core';
 
 
 
-export default function UserForm() {
+const UserForm: FC = () => {
 
     const { account } = useEthers()
 
-    const context = useParticipantContext()
+    const context = useCreditsContext()
     const isSubmitted = context?.credits !== null
 
     const nameInputRef = useRef<string>('')
     const emailInputRef = useRef<string>('')
 
-    const submit = (e: SyntheticEvent) => {
+    const submit: FormEventHandler<HTMLFormElement> = e => {
         e.preventDefault();
-
-        if (context === null) return
-
-        context.setCredits({ 
+        context?.setCredits({ 
             id: 'new', 
             username: nameInputRef.current, 
             email: emailInputRef.current,
@@ -60,3 +57,5 @@ export default function UserForm() {
         </div>
     )
 }
+
+export default React.memo(UserForm)

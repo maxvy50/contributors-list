@@ -1,26 +1,27 @@
-import React, { SyntheticEvent, useCallback, useState } from 'react'
+import React, { FC, useCallback, useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import { Item, ItemsBatchRequest, ItemsBatchResponse, API } from '../../api/api';
-import s from './list.module.css'
-import { useParticipantContext } from '../../context/ParticipantContext';
-import ItemRow from '../ItemRow/ItemRow';
+import s from './userList.module.css'
+import { useCreditsContext } from '../../context/CreditsContext';
+import User from './user/User';
 import { useEthers } from '@usedapp/core';
+
+
+type ItemHandler = (id: Item['id']) => void
+
 
 const loader = (
     <span key="loader" className={s['loader']}></span>
 );
 
-
-
-export default function List() {
+const UserList: FC = () => {
 
     const { account } = useEthers()
+    const context = useCreditsContext()
     const [list, setList] = useState<Item[]>([])
-    const context = useParticipantContext()
     const extendedList = (!context || !context.credits || !account)
         ? list
         : [{ ...context.credits, address: account }, ...list]
-
 
     const [page, setPage] = useState(1)
     const [hasMore, setHasMore] = useState(true)
@@ -47,11 +48,14 @@ export default function List() {
         , [list, isFetching, page]);
 
 
-    const removeItem = (e: SyntheticEvent, id: Item['id']): void => {
-        e.stopPropagation()
-        setList(prev => prev.filter(item => item.id !== id))
-        console.log(id)
+    const removeItem: ItemHandler = id => {
+        context?.setCredits(null)
     }
+
+    useEffect(() => {
+        console.log('list.0: ', list[0])
+        console.log('from context: ', context?.credits)
+    })
 
     if (!context?.credits) return <></>
     return (
@@ -70,13 +74,14 @@ export default function List() {
                     useWindow={false}
                 >
                     {extendedList.map(i =>
-                        <ItemRow
-                            key={i.id}
+                        <User key={i.id}
                             item={i}
-                            callback={removeItem} />
+                            callback={() => removeItem(i.id)} />
                     )}
                 </InfiniteScroll>
             </div>
         </div>
     )
 }
+
+export default UserList

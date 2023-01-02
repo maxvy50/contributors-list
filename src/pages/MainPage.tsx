@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Banner from '../components/banner/Banner';
-import List from '../components/list/List';
+import UserList from '../components/userList/UserList';
 import Stats from '../components/stats/Stats';
 import UserForm from '../components/userForm/UserForm';
 import '../assets/styles/mainPage.css'
 import Modal from '../components/UI/modal/Modal';
-import { useParticipantContext } from '../context/ParticipantContext';
+import CreditsContextProvider, { useCreditsContext } from '../context/CreditsContext';
 import Button from '../components/UI/button/Button';
 import '../assets/styles/animation/animation.css'
+import { useGlobalContext } from '../context/GlobalContext';
 
 
-function MainPage() {
-    const context = useParticipantContext()
+const MainPage: FC = () => {
+    const creditsContext = useCreditsContext()
+    const globalContext = useGlobalContext()
 
     const hideNotification = () => {
-        context?.setIsNotified(true)
+        globalContext?.setIsNotified(true)
     }
 
     return (
         <>
-            <Modal onShadowClick={hideNotification} visible={!context?.isNotified}>
+            <Modal onShadowClick={hideNotification} visible={!globalContext?.isNotified}>
                 <div className='notification'>
                     <h2>Metamask extension</h2>
                     <p>
@@ -43,8 +45,10 @@ function MainPage() {
                 <>Explore Your own planet In <span className={'inverted'}>our new</span> metaverse</>
             </Banner>
             <Stats />
-            <UserForm />
-            <List />
+            <CreditsContextProvider>
+                <UserForm />
+                <UserList />
+            </CreditsContextProvider>
         </>
     )
 }

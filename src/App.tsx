@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Button from './components/UI/button/Button';
 import MainPage from './pages/MainPage';
 import UserPage from './pages/UserPage';
-import { useParticipantContext } from './context/ParticipantContext';
 import { useEthers } from '@usedapp/core';
+import GlobalContextProvider from './context/GlobalContext';
 
 function App() {
 
-  const context = useParticipantContext()
-  const { activateBrowserWallet, deactivate,  account } = useEthers()
+  const { activateBrowserWallet, deactivate, account } = useEthers()
 
   const connectMetamask = () => {
     activateBrowserWallet()
@@ -19,7 +18,7 @@ function App() {
     return () => {
       deactivate()
     }
-  },[])
+  }, [])
 
   return (
     <>
@@ -30,13 +29,15 @@ function App() {
           : <strong>{account}</strong>
         }
       </div>
-      <Router>
-        <Routes>
-          <Route path={'/'} element={<MainPage />} />
-          {context?.credits && <Route path={'/id/:id'} element={<UserPage />} />}
-          <Route path={'*'} element={<MainPage />} />
-        </Routes>
-      </Router>
+      <GlobalContextProvider>
+        <Router>
+          <Routes>
+            <Route path={'/'} element={<MainPage />} />
+            <Route path={'/id/:id'} element={<UserPage />} />
+            <Route path={'*'} element={<MainPage />} />
+          </Routes>
+        </Router>
+      </GlobalContextProvider>
     </>
   );
 }
