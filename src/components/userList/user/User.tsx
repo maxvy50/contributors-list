@@ -33,4 +33,4 @@ const User: FC<UserProps> = ( { item, callback } ) => {
     )
 }
 
-export default User
+export default React.memo(User)

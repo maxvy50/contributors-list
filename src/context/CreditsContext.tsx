@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import React, { FC, PropsWithChildren, useContext, useState } from 'react';
 import { Item } from '../api/api';
 
 type Credits = null | Omit<Item, "address">
@@ -15,15 +15,12 @@ export function useCreditsContext(): CreditsContextData | null {
     return useContext(CreditsContext)
 }
 
-const CreditsContextProvider: FC<PropsWithChildren> = ( { children } ) => {
+
+const CreditsContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const [credits, setCredits] = useState<Credits>(null)
 
-    useEffect(() => 
-        console.log(credits)
-    , [credits])
-
     return (
-        <CreditsContext.Provider value={{credits, setCredits}}>
+        <CreditsContext.Provider value={{ credits, setCredits }}>
             {children}
         </CreditsContext.Provider>
     )

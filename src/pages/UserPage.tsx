@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { API, Item, ItemByIdRequest } from '../api/api';
 import bannerStyles from '../components/banner/banner.module.css'
 import '../assets/styles/userPage.css'
 
 
-export default function UserPage() {
+const UserPage: FC = () => {
   const [isFetching, setIsFetching] = useState(false)
   const [data, setData] = useState<Item | null>(null)
   const { id } = useParams()
@@ -46,3 +46,5 @@ export default function UserPage() {
     </>
   )
 }
+
+export default UserPage

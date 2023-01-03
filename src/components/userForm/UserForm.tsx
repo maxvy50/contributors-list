@@ -58,4 +58,4 @@ const UserForm: FC = () => {
     )
 }
 
-export default React.memo(UserForm)
+export default UserForm

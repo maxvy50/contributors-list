@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState, useEffect } from 'react'
+import React, { FC, useCallback, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import { Item, ItemsBatchRequest, ItemsBatchResponse, API } from '../../api/api';
 import s from './userList.module.css'
@@ -52,10 +52,6 @@ const UserList: FC = () => {
         context?.setCredits(null)
     }
 
-    useEffect(() => {
-        console.log('list.0: ', list[0])
-        console.log('from context: ', context?.credits)
-    })
 
     if (!context?.credits) return <></>
     return (

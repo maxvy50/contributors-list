@@ -128,3 +128,28 @@ a {
     font-size: 40px;
     line-height: 120%;
 }
+
+.notification {
+    width: 422px;
+    height: 295px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.notification h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 120%;
+    color: var(--accent-color);
+}
+
+.notification p {
+    width: 75%;
+    text-align: center;
+}
+
+.notification a {
+    color: var(--accent-color);
+}
