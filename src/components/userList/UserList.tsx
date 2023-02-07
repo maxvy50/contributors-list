@@ -19,7 +19,7 @@ const UserList: FC = () => {
     const { account } = useEthers()
     const context = useCreditsContext()
     const [list, setList] = useState<Item[]>([])
-    const extendedList = (!context || !context.credits || !account)
+    const extendedList = (!context || !context.credits /* || !account */)
         ? list
         : [{ ...context.credits, address: account ?? 'wallet not connected' }, ...list]
 
