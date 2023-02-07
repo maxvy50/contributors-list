@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/unistory-test/static/css/main.4b33e21a.css",
-    "main.js": "/unistory-test/static/js/main.909fcd18.js",
+    "main.js": "/unistory-test/static/js/main.684e07db.js",
     "static/media/plant.png": "/unistory-test/static/media/plant.c55be23f88035ead43c0.png",
     "static/media/avenirnextcyr-regular.svg": "/unistory-test/static/media/avenirnextcyr-regular.77053e9a01ab2969e98c.svg",
     "static/media/BebasNeueRegular400.ttf": "/unistory-test/static/media/BebasNeueRegular400.7d2f1e3c43251f14336c.ttf",
@@ -12,10 +12,10 @@
     "static/media/avenirnextcyr-regular.woff2": "/unistory-test/static/media/avenirnextcyr-regular.ab40a32de26493781148.woff2",
     "index.html": "/unistory-test/index.html",
     "main.4b33e21a.css.map": "/unistory-test/static/css/main.4b33e21a.css.map",
-    "main.909fcd18.js.map": "/unistory-test/static/js/main.909fcd18.js.map"
+    "main.684e07db.js.map": "/unistory-test/static/js/main.684e07db.js.map"
   },
   "entrypoints": [
     "static/css/main.4b33e21a.css",
-    "static/js/main.909fcd18.js"
+    "static/js/main.684e07db.js"
   ]
 }
