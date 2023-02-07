@@ -21,7 +21,7 @@ const UserList: FC = () => {
     const [list, setList] = useState<Item[]>([])
     const extendedList = (!context || !context.credits || !account)
         ? list
-        : [{ ...context.credits, address: account }, ...list]
+        : [{ ...context.credits, address: account ?? 'wallet not connected' }, ...list]
 
     const [page, setPage] = useState(1)
     const [hasMore, setHasMore] = useState(true)

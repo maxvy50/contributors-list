@@ -50,7 +50,7 @@ const UserForm: FC = () => {
                         placeholder={'We will display your email in participation list'} />
                 }
                 <div className={s['spacer']} />
-                <Button disabled={isSubmitted || !account }>
+                <Button disabled={isSubmitted /* || !account */ }>
                     {isSubmitted ? 'List me to the table' : 'Get early access'}
                 </Button>
             </form>
