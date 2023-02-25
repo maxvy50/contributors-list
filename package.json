@@ -1,6 +1,6 @@
 {
-  "name": "unistory-test",
-  "homepage": "http://maxvy50.github.io/unistory-test",
+  "name": "contributors-list",
+  "homepage": "http://maxvy50.github.io/contributors-list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
