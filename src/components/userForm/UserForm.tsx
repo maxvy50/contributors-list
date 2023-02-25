@@ -1,4 +1,4 @@
-import React, { FC, FormEventHandler, useRef } from 'react'
+import { FC, FormEventHandler, useRef } from 'react'
 import Button from '../UI/button/Button';
 import s from './userForm.module.css'
 import { paragraphPlaceholder } from '../../index';
